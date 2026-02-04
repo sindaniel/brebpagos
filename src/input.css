@@ -2,6 +2,8 @@
 
 @source "../*.html";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', system-ui, sans-serif;
 }

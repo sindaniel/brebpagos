@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@source "../*.html";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@utility gradient-text {
+  background: linear-gradient(115deg, #fff1be 0%, #ee87cb 40%, #b060ff 70%, #6dd5ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Gradient background animations */
+@keyframes float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, -40px) scale(1.15);
+  }
+}
+
+@keyframes float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(1.2);
+  }
+}
+
+@keyframes float-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 30px) scale(1.25);
+  }
+}
+
+@utility orb-1 {
+  position: fixed !important;
+  width: 500px !important;
+  height: 500px !important;
+  background: #a855f7 !important;
+  border-radius: 50% !important;
+  filter: blur(100px) !important;
+  opacity: 0.4 !important;
+  top: -150px !important;
+  right: -100px !important;
+  animation: float-1 6s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@utility orb-2 {
+  position: fixed !important;
+  width: 400px !important;
+  height: 400px !important;
+  background: #ec4899 !important;
+  border-radius: 50% !important;
+  filter: blur(100px) !important;
+  opacity: 0.35 !important;
+  bottom: 5% !important;
+  left: -100px !important;
+  animation: float-2 8s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@utility orb-3 {
+  position: fixed !important;
+  width: 350px !important;
+  height: 350px !important;
+  background: #facc15 !important;
+  border-radius: 50% !important;
+  filter: blur(100px) !important;
+  opacity: 0.3 !important;
+  top: 40% !important;
+  right: 5% !important;
+  animation: float-3 5s ease-in-out infinite !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.dark .orb-1 {
+  opacity: 0.5 !important;
+}
+
+.dark .orb-2 {
+  opacity: 0.45 !important;
+}
+
+.dark .orb-3 {
+  opacity: 0.35 !important;
+}
+
+/* Marquee slider */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+@utility marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marquee 120s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@utility marquee-item {
+  flex-shrink: 0;
+  width: 280px;
+}
